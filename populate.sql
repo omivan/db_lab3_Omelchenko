@@ -13,7 +13,9 @@ INSERT INTO company (company_id, location, name) VALUES
 (11, 'United States', 'Villain Role'),
 (12, 'Germany', 'Kubold'),
 (13, 'United States', 'LFiO Studio'),
-(14, 'Netherlands', 'Fireroot Studios');
+(14, 'Netherlands', 'Fireroot Studios'),
+(15, 'United States', 'Rockstar Games'),
+(16, 'Poland', 'CD Projekt');
 
 -- Insert data into 'genre' table
 INSERT INTO genre (genre_id, name) VALUES
@@ -35,7 +37,9 @@ INSERT INTO game (game_id, name, release_date, users_number) VALUES
 (107, 'Tower of Origin2-Worms Nest', '2022-03-20', 20000),
 (108, 'Hellish Quart', '2021-03-20', 200000),
 (109, 'SurReal Subway', '2022-03-20', 20000),
-(110, 'Rogue Reaper', '2022-03-20', 200000);
+(110, 'Rogue Reaper', '2022-03-20', 200000),
+(111, 'Grand Theft Auto V', '2013-08-01', 20000000),
+(112, 'Cyberpunk 2077', '2023-01-06', 15000000);
 
 
 -- Insert data into 'game_genre' table
@@ -61,7 +65,10 @@ INSERT INTO game_genre (genre_id, game_id) VALUES
 (1004, 109),
 (1001, 110),
 (1002, 110),
-(1004, 110);
+(1004, 110),
+(1001, 111),
+(1002, 111),
+(1001, 112);
 
 
 
@@ -79,7 +86,9 @@ INSERT INTO Develop (game_id, company_id) VALUES
 (107, 11),
 (108, 12),
 (109, 13),
-(110, 14);
+(110, 14),
+(111, 15),
+(112, 16);
 
 -- Insert data into 'Publish' table
 INSERT INTO Publish (game_id, company_id) VALUES
@@ -93,7 +102,8 @@ INSERT INTO Publish (game_id, company_id) VALUES
 (107, 11),
 (108, 12),
 (109, 13),
-(110, 14);
-
+(110, 14),
+(111, 15),
+(112, 16);
 
 

@@ -1,14 +1,18 @@
--- number of publishers of each game
-SELECT game.game_id, game.name AS game_name, COUNT(publish.company_id) AS num_publishers
-FROM game
-JOIN publish ON game.game_id = publish.game_id
-GROUP BY game.game_id;
+-- number of users
+SELECT company.name, COALESCE(SUM(game.users_number), 0) AS total_users
+FROM company
+LEFT JOIN publish ON company.company_id = publish.company_id
+LEFT JOIN game ON publish.game_id = game.game_id
+GROUP BY company.company_id
+ORDER BY total_users DESC 
+LIMIT 4;
 
--- how many genres each game has
-SELECT game.game_id, game.name AS game_name, COUNT(game_genre.genre_id) AS num_genres
-FROM game
-LEFT JOIN game_genre ON game.game_id = game_genre.game_id
-GROUP BY game.game_id;
+-- how many times each genre was mentioned 
+SELECT genre.name AS genre_name, COUNT(game_genre.genre_id) AS usage_count
+FROM genre
+LEFT JOIN game_genre ON genre.genre_id = game_genre.genre_id
+GROUP BY genre.name
+ORDER BY genre.name;
 
 -- how many times company was mentioned as publisher or developer
 SELECT
@@ -22,3 +26,5 @@ LEFT JOIN
   develop d ON c.company_id = d.company_id
 GROUP BY
   c.company_id, c.name;
+
+
